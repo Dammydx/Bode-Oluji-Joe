@@ -27,89 +27,96 @@ const Home: React.FC = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0 z-0">
-          <div className="w-full h-full bg-gradient-to-br from-yellow-100 via-white to-yellow-50 animate-gradientMove" />
-        </div>
+<section className="relative min-h-screen flex items-center overflow-hidden pt-24">
+  {/* Background */}
+  <div className="absolute inset-0 z-0">
+    <div className="w-full h-full bg-gradient-to-br from-yellow-100 via-white to-yellow-50 animate-gradientMove" />
+  </div>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-20 md:pt-0">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
-          >
-            {/* Text Section */}
-            <div>
-              <motion.h1
-                variants={itemVariants}
-                className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black leading-tight"
-              >
-                Bode Oluji Joe
-              </motion.h1>
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+    >
+      {/* Text Section */}
+      <div>
+        <motion.h1
+          variants={itemVariants}
+          className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black leading-tight"
+        >
+          Bode Oluji Joe
+        </motion.h1>
 
-              {/* Short tagline/roles */}
-                <motion.p
-                  variants={itemVariants}
-                  className="mt-2 text-xl sm:text-2xl text-gray-700 font-medium"
-                >
-                CEO | Business Leader | Speaker
-              </motion.p>
+        {/* Short tagline/roles */}
+        <motion.p
+          variants={itemVariants}
+          className="mt-2 text-lg sm:text-xl text-gray-700 font-medium"
+        >
+          CEO | Business Leader | Speaker
+        </motion.p>
 
-                {/* Full descriptive line */}
-                <motion.p
-                  variants={itemVariants}
-                  className="mt-2 text-lg sm:text-xl text-gray-600"
-                >
-                  Chief Executive Officer at Dolu Properties — Real Estate, Leadership & Wealth Creation
-                </motion.p>
-              <motion.div
-                variants={itemVariants}
-                className="mt-8 flex flex-wrap gap-4"
-              >
-                <Link to="/services" className="btn btn-primary">
-                  View Services
-                </Link>
-                <Link to="/about" className="btn btn-outline">
-                  About Me
-                </Link>
-                <Link to="/contact" className="btn btn-secondary">
-                  Contact Me
-                </Link>
-              </motion.div>
+        {/* Full descriptive line */}
+        <motion.p
+          variants={itemVariants}
+          className="mt-2 text-base sm:text-lg text-gray-600"
+        >
+          Chief Executive Officer at Dolu Properties — Real Estate, Leadership & Wealth Creation
+        </motion.p>
+
+        <motion.div
+          variants={itemVariants}
+          className="mt-6 flex flex-wrap gap-4"
+        >
+          <Link to="/services" className="btn btn-primary">
+            View Services
+          </Link>
+          <Link to="/about" className="btn btn-outline">
+            About Me
+          </Link>
+          <Link to="/contact" className="btn btn-secondary">
+            Contact Me
+          </Link>
+        </motion.div>
+      </div>
+
+      {/* Image Section */}
+      <motion.div
+        variants={itemVariants}
+        className="flex justify-center order-first lg:order-last"
+      >
+        <div className="relative w-full max-w-xs sm:max-w-sm">
+          {/* Circular Image */}
+          <div className="aspect-square overflow-hidden rounded-full shadow-lg">
+            <img
+              src="/images/Doluboss.png" // replace with actual image
+              alt="Bode Oluji Joe"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Tags */}
+          <div className="absolute -bottom-4 -right-4 flex flex-col space-y-2">
+            <div className="bg-yellow-400 text-black text-xs sm:text-sm font-medium py-1 px-3 rounded-full shadow-md transform rotate-2">
+              CEO
             </div>
-
-            {/* Image Section */}
-            <motion.div
-              variants={itemVariants}
-              className="flex justify-center order-first lg:order-last"
-            >
-              <div className="relative w-full max-w-sm sm:max-w-md">
-                {/* Image */}
-                <img
-                  src="/images/bode.jpg" // replace with real portrait
-                  alt="Bode Oluji Joe"
-                  className="w-full h-auto rounded-2xl shadow-lg object-cover"
-                />
-
-                {/* Tags */}
-                <span className="absolute top-4 left-4 bg-black text-white text-sm px-3 py-1 rounded-full shadow">
-                  CEO
-                </span>
-                <span className="absolute top-16 right-4 bg-yellow-400 text-black text-sm px-3 py-1 rounded-full shadow">
-                  Speaker
-                </span>
-                <span className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white text-black text-sm px-4 py-1 rounded-full shadow">
-                  Real Estate Expert
-                </span>
-              </div>
-            </motion.div>
-          </motion.div>
+            <div className="bg-yellow-400 text-black text-xs sm:text-sm font-medium py-1 px-3 rounded-full shadow-md transform -rotate-2">
+              Business Leader
+            </div>
+            <div className="bg-yellow-400 text-black text-xs sm:text-sm font-medium py-1 px-3 rounded-full shadow-md transform rotate-1">
+              Speaker
+            </div>
+          </div>
         </div>
-      </section>
+      </motion.div>
+    </motion.div>
+  </div>
+</section>
 
-      {/* Services */}
+
+
+      {/* Services Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div

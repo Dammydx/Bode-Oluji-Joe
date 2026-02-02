@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Download } from 'lucide-react';
 
-import heroImg from '/images/hero.jpg'; // Replace with actual Bode image
+import heroImg from '/images/Dolu boss 2.png'; // Replace with actual Bode image
 
 const skills = [
   "Executive Leadership",
@@ -60,7 +60,7 @@ const AboutPage: React.FC = () => {
             className="relative flex justify-center md:justify-start"
           >
             <div className="relative">
-              <div className="aspect-square overflow-hidden rounded-full border-4 border-yellow-400 shadow-lg max-w-xs mx-auto">
+              <div className="aspect-square overflow-hidden rounded-full border-4 border-yellow-400 shadow-lg mx-auto max-w-lg">
                 <img
                   src={heroImg}
                   alt="Bode Oluji Joe"

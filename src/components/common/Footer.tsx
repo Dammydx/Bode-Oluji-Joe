@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
               </span>
             </Link>
             <p className="mt-3 text-gray-400 max-w-xs">
-              Your productivity partner—Helping you focus on what matters most.
+              Real Estate, Leadership & Wealth Creation.
             </p>
           </div>
 
@@ -25,13 +25,13 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              {['/', '/services', '/about', '/blog', '/contact'].map((path, i) => (
+              {['/', '/services', '/about','/contact'].map((path, i) => (
                 <li key={path}>
                   <Link
                     to={path}
                     className="text-gray-400 hover:text-yellow-400 transition-colors"
                   >
-                    {['Home', 'Services', 'About', 'Blog', 'Contact'][i]}
+                    {['Home', 'Services', 'About', 'Contact'][i]}
                   </Link>
                 </li>
               ))}
@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
                   className="text-gray-400 hover:text-yellow-400 transition-colors inline-flex items-center"
                 >
                   <Lock size={14} className="mr-1" />
-                  Admin
+                  *****
                 </Link>
               </li>
             </ul>
@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center md:text-left text-gray-500">
-          <p>&copy; {currentYear} FlowDesk. All rights reserved.</p>
+          <p>&copy; {currentYear} DoluGlobal. All rights reserved.</p>
         </div>
       </div>
     </footer>

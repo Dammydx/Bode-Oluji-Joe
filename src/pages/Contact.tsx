@@ -68,38 +68,37 @@ const Contact: React.FC = () => {
   return (
     <div className="pt-20 pb-20 bg-white">
       {/* Header */}
-<div className="bg-gradient-to-r from-yellow-50 to-white py-16">
-  <div className="container mx-auto px-4 text-center">
-    <motion.div
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-    >
-      <h1 className="text-4xl sm:text-5xl font-bold text-black">
-        Contact Me
-      </h1>
-      <p className="mt-4 text-xl text-gray-700">
-        Let’s discuss how I can help streamline your workflow
-      </p>
-    </motion.div>
-  </div>
-</div>
-
+      <div className="bg-gradient-to-r from-yellow-50 to-white py-16">
+        <div className="container mx-auto px-4 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <h1 className="text-4xl sm:text-5xl font-bold text-black">
+              Contact Me
+            </h1>
+            <p className="mt-4 text-xl text-gray-700 max-w-2xl mx-auto">
+              Reach out to discuss leadership, business growth, real estate opportunities, or wealth creation strategies.
+            </p>
+          </motion.div>
+        </div>
+      </div>
 
       {/* Content */}
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
-          
+
           {/* Info */}
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
             <h2 className="text-2xl font-bold text-black mb-6">
               Get In Touch
             </h2>
             <p className="text-gray-700 mb-8">
-              Have questions or a project in mind? Fill the form and I’ll respond shortly.
+              Connect with Bode Oluji Joe to discuss leadership and business growth.
             </p>
 
             <a
-              href="https://www.linkedin.com/in/lewechi-princess"
+              href="https://www.linkedin.com/in/bode-oluji-joe"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center text-black hover:text-yellow-500 transition-colors"
