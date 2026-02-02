@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Calendar, CheckCircle, FileText, Users } from 'lucide-react';
 
+import heroImg2 from '/images/Doluboss.png'; // Replace with actual Bode image
+
 const Home: React.FC = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -90,7 +92,7 @@ const Home: React.FC = () => {
           {/* Circular Image */}
           <div className="aspect-square overflow-hidden rounded-full shadow-lg">
             <img
-              src="/images/Doluboss.png" // replace with actual image
+              src={heroImg2}
               alt="Bode Oluji Joe"
               className="w-full h-full object-cover"
             />
