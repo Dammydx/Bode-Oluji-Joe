@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { toast } from 'react-toastify';
 import supabase from '../lib/supabase';
-import { Linkedin, Send } from 'lucide-react';
+import { Instagram, Send } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -98,13 +98,13 @@ const Contact: React.FC = () => {
             </p>
 
             <a
-              href="https://www.linkedin.com/in/bode-oluji-joe"
+              href="https://www.instagram.com/davidoluji/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center text-black hover:text-yellow-500 transition-colors"
             >
-              <Linkedin size={20} className="mr-3" />
-              LinkedIn
+              <Instagram size={20} className="mr-3" />
+              Instagram
             </a>
           </motion.div>
 

@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { CheckCircle, Download } from 'lucide-react';
+import { Image } from 'lucide-react';
+
+import { CheckCircle, } from 'lucide-react';
 
 import heroImg from '/images/Dolu boss 2.png'; // Replace with actual Bode image
 
@@ -110,21 +112,20 @@ const AboutPage: React.FC = () => {
               ))}
             </div>
 
-            {/* CV / Contact */}
+            {/* Gallery / Contact */}
             <div className="flex flex-wrap gap-4">
-              <a
-                href="https://drive.google.com/file/d/PLACEHOLDER_LINK/view"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link to="/gallery"
                 className="btn btn-primary inline-flex items-center"
               >
-                <Download size={18} className="mr-2" />
-                Download CV
-              </a>
+                <Image size={18} className="mr-2" />
+                My Gallery
+              </Link>
+
               <Link to="/contact" className="btn btn-outline">
                 Get in Touch
               </Link>
             </div>
+
           </motion.div>
         </div>
 

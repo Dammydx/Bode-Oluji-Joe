@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Calendar, CheckCircle, FileText, Users } from 'lucide-react';
@@ -29,94 +29,86 @@ const Home: React.FC = () => {
   return (
     <>
       {/* Hero Section */}
-<section className="relative min-h-screen flex items-center overflow-hidden pt-24">
-  {/* Background */}
-  <div className="absolute inset-0 z-0">
-    <div className="w-full h-full bg-gradient-to-br from-yellow-100 via-white to-yellow-50 animate-gradientMove" />
-  </div>
-
-  <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-      className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
-    >
-      {/* Text Section */}
-      <div>
-        <motion.h1
-          variants={itemVariants}
-          className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black leading-tight"
-        >
-          Bode Oluji Joe
-        </motion.h1>
-
-        {/* Short tagline/roles */}
-        <motion.p
-          variants={itemVariants}
-          className="mt-2 text-lg sm:text-xl text-gray-700 font-medium"
-        >
-          CEO | Business Leader | Speaker
-        </motion.p>
-
-        {/* Full descriptive line */}
-        <motion.p
-          variants={itemVariants}
-          className="mt-2 text-base sm:text-lg text-gray-600"
-        >
-          Chief Executive Officer at Dolu Properties — Real Estate, Leadership & Wealth Creation
-        </motion.p>
-
-        <motion.div
-          variants={itemVariants}
-          className="mt-6 flex flex-wrap gap-4"
-        >
-          <Link to="/services" className="btn btn-primary">
-            View Services
-          </Link>
-          <Link to="/about" className="btn btn-outline">
-            About Me
-          </Link>
-          <Link to="/contact" className="btn btn-secondary">
-            Contact Me
-          </Link>
-        </motion.div>
-      </div>
-
-      {/* Image Section */}
-      <motion.div
-        variants={itemVariants}
-        className="flex justify-center order-first lg:order-last"
-      >
-        <div className="relative w-full max-w-xs sm:max-w-sm">
-          {/* Circular Image */}
-          <div className="aspect-square overflow-hidden rounded-full shadow-lg">
-            <img
-              src={heroImg2}
-              alt="Bode Oluji Joe"
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          {/* Tags */}
-          <div className="absolute -bottom-4 -right-4 flex flex-col space-y-2">
-            <div className="bg-yellow-400 text-black text-xs sm:text-sm font-medium py-1 px-3 rounded-full shadow-md transform rotate-2">
-              CEO
-            </div>
-            <div className="bg-yellow-400 text-black text-xs sm:text-sm font-medium py-1 px-3 rounded-full shadow-md transform -rotate-2">
-              Business Leader
-            </div>
-            <div className="bg-yellow-400 text-black text-xs sm:text-sm font-medium py-1 px-3 rounded-full shadow-md transform rotate-1">
-              Speaker
-            </div>
-          </div>
+      <section className="relative min-h-screen flex items-center overflow-hidden pt-24">
+        <div className="absolute inset-0 z-0">
+          <div className="w-full h-full bg-gradient-to-br from-yellow-100 via-white to-yellow-50 animate-gradientMove" />
         </div>
-      </motion.div>
-    </motion.div>
-  </div>
-</section>
 
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+          >
+            <div>
+              <motion.h1
+                variants={itemVariants}
+                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black leading-tight"
+              >
+                Bode Oluji Joe
+              </motion.h1>
 
+              <motion.p
+                variants={itemVariants}
+                className="mt-2 text-lg sm:text-xl text-gray-700 font-medium"
+              >
+                CEO | Business Leader | Speaker
+              </motion.p>
+
+              <motion.p
+                variants={itemVariants}
+                className="mt-2 text-base sm:text-lg text-gray-600"
+              >
+                Chief Executive Officer at Dolu Properties — Real Estate, Leadership & Wealth Creation
+              </motion.p>
+
+              <motion.div
+                variants={itemVariants}
+                className="mt-6 flex flex-wrap gap-4"
+              >
+                <Link to="/services" className="btn btn-primary">
+                  View Services
+                </Link>
+                <Link to="/about" className="btn btn-outline">
+                  About Me
+                </Link>
+                <Link to="/contact" className="btn btn-secondary">
+                  Contact Me
+                </Link>
+              </motion.div>
+            </div>
+
+            {/* Image Section */}
+            <motion.div
+              variants={itemVariants}
+              className="flex justify-center order-first lg:order-last"
+            >
+              <div className="relative w-full max-w-xs sm:max-w-sm">
+                <div className="aspect-square overflow-hidden rounded-full shadow-lg">
+                  <img
+                    src={heroImg2}
+                    alt="Bode Oluji Joe"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                <div className="absolute -bottom-4 -right-4 flex flex-col space-y-2">
+                  <div className="bg-yellow-400 text-black text-xs sm:text-sm font-medium py-1 px-3 rounded-full shadow-md transform rotate-2">
+                    CEO
+                  </div>
+                  <div className="bg-yellow-400 text-black text-xs sm:text-sm font-medium py-1 px-3 rounded-full shadow-md transform -rotate-2">
+                    Business Leader
+                  </div>
+                  <div className="bg-yellow-400 text-black text-xs sm:text-sm font-medium py-1 px-3 rounded-full shadow-md transform rotate-1">
+                    Speaker
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Services Section */}
       <section className="py-20 bg-gray-50">
@@ -167,7 +159,10 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Gallery Grid Section */}
+      <GalleryGrid />
+
+      {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-black to-gray-900 text-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -210,6 +205,103 @@ const ServiceCard: React.FC<{
       <h3 className="text-xl font-semibold text-black mb-2">{title}</h3>
       <p className="text-gray-600">{description}</p>
     </motion.div>
+  );
+};
+
+// --------- GALLERY GRID WITH RANDOM ANIMATION & DOTS ---------
+const galleryImages = Object.values(
+  import.meta.glob('../assets/gallery/*.{jpg,jpeg,png,webp}', {
+    eager: true,
+    as: 'url',
+  })
+);
+
+const GalleryGrid: React.FC = () => {
+  const [currentSet, setCurrentSet] = useState(0);
+  const sets: string[][] = [];
+
+  // Split images into sets of 3
+  for (let i = 0; i < galleryImages.length; i += 3) {
+    sets.push(galleryImages.slice(i, i + 3));
+  }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSet((prev) => (prev + 1) % sets.length);
+    }, 5000); // change every 5s
+    return () => clearInterval(interval);
+  }, [sets.length]);
+
+  if (galleryImages.length === 0) {
+    return (
+      <p className="text-center text-gray-500">
+        No images found in gallery folder.
+      </p>
+    );
+  }
+
+  return (
+    <section className="py-20 bg-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl font-bold text-black">
+            Gallery
+          </h2>
+          <p className="mt-3 text-lg text-gray-600">
+            Moments, milestones, and impact.
+          </p>
+        </div>
+
+        {/* Image Grid */}
+        <motion.div
+          key={currentSet}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8 }}
+          className="grid grid-cols-1 sm:grid-cols-3 gap-6"
+        >
+          {sets[currentSet].map((img, idx) => (
+            <motion.div
+              key={idx}
+              className="overflow-hidden rounded-xl shadow-md cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.5 }}
+              onClick={() => window.location.href = '/gallery'}
+            >
+              <img
+                src={img}
+                alt="Gallery"
+                className="w-full h-[260px] object-cover object-center"
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Dots */}
+        <div className="flex justify-center gap-3 mt-6">
+          {sets.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentSet(idx)}
+              className={`w-3 h-3 rounded-full transition-all ${
+                currentSet === idx ? 'bg-yellow-400 scale-125' : 'bg-gray-300'
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Visit Gallery Button */}
+        <div className="text-center mt-8">
+          <Link
+            to="/gallery"
+            className="btn btn-primary px-6 py-3"
+          >
+            Visit My Gallery
+          </Link>
+        </div>
+      </div>
+    </section>
   );
 };
 

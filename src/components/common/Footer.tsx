@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Linkedin, Lock } from 'lucide-react';
+import {  Instagram, Lock } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -25,13 +25,13 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              {['/', '/services', '/about','/contact'].map((path, i) => (
+              {['/', '/services', '/about','/gallery','/contact'].map((path, i) => (
                 <li key={path}>
                   <Link
                     to={path}
                     className="text-gray-400 hover:text-yellow-400 transition-colors"
                   >
-                    {['Home', 'Services', 'About', 'Contact'][i]}
+                    {['Home', 'Services', 'About', 'Gallery', 'Contact'][i]}
                   </Link>
                 </li>
               ))}
@@ -51,13 +51,13 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Connect</h4>
             <a
-              href="https://www.linkedin.com/in/lewechi-princess"
+              href="https://www.instagram.com/davidoluji/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center text-gray-400 hover:text-yellow-400 transition-colors"
             >
-              <Linkedin size={20} className="mr-2" />
-              LinkedIn
+              <Instagram size={20} className="mr-2" />
+              Instagram
             </a>
 
             <div className="mt-4">
