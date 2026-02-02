@@ -23,36 +23,36 @@ const Services: React.FC = () => {
 
   const services = [
     {
-      title: "Email & Calendar Management",
-      description: "Strategic inbox organization and scheduling systems that keep communication efficient and priorities clear."
+      title: "Business Strategy",
+      description: "Practical guidance to optimize operations, scale businesses, and drive long-term growth."
     },
     {
-      title: "Scheduling & Travel Coordination",
-      description: "Seamless coordination of meetings, travel, and logistics with attention to detail and efficiency."
+      title: "Leadership Coaching",
+      description: "Empowering leaders with actionable insights and proven frameworks for success."
     },
     {
-      title: "Reports & Presentation Creation",
-      description: "Executive-ready reports and presentations designed to communicate insights clearly and professionally."
+      title: "Real Estate Advisory",
+      description: "Expert advice on property investments, market trends, and wealth building through real estate."
     },
     {
-      title: "File Management & Organization",
-      description: "Structured digital systems that improve accessibility, security, and workflow efficiency."
+      title: "Wealth & Investment Planning",
+      description: "Strategies to grow, preserve, and manage wealth effectively for lasting impact."
     },
     {
-      title: "Meeting Transcriptions & Summaries",
-      description: "Accurate documentation and concise summaries to support informed decision-making."
+      title: "Corporate Growth Solutions",
+      description: "Helping companies structure operations, maximize efficiency, and achieve sustainable expansion."
     },
     {
-      title: "Client Follow-ups & Communication",
-      description: "Professional, timely communication that strengthens relationships and builds trust."
+      title: "Public Speaking & Mentoring",
+      description: "Engaging sessions on leadership, business growth, and wealth creation."
     },
     {
-      title: "Task Tracking & Deadline Reminders",
-      description: "Reliable task monitoring systems that ensure consistency and accountability."
+      title: "Market & Opportunity Analysis",
+      description: "Insights and analysis to make informed investment and business decisions."
     },
     {
-      title: "Social Media Management",
-      description: "Content scheduling and engagement oversight to maintain a polished online presence."
+      title: "Strategic Networking",
+      description: "Connecting you with key industry players and opportunities for collaboration and growth."
     }
   ];
 
@@ -63,7 +63,7 @@ const Services: React.FC = () => {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold text-black">My Services</h1>
           <p className="mt-4 text-xl text-gray-700">
-            Professional support services designed to improve focus, structure, and productivity.
+            Professional guidance and strategies to enhance business growth, leadership, and wealth creation.
           </p>
         </div>
       </div>
@@ -103,7 +103,7 @@ const Services: React.FC = () => {
         <div className="container mx-auto px-4 text-center text-white">
           <h2 className="text-3xl font-bold mb-6">Ready to Get Started?</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Let’s build systems that free up your time and allow you to focus on growth.
+            Let’s discuss your growth, leadership, and investment opportunities.
           </p>
           <div className="flex justify-center gap-4 flex-wrap">
             <Link to="/contact" className="btn btn-primary">

@@ -49,13 +49,21 @@ const Home: React.FC = () => {
                 Bode Oluji Joe
               </motion.h1>
 
-              <motion.p
-                variants={itemVariants}
-                className="mt-4 text-xl sm:text-2xl text-gray-700"
-              >
-                Chief Executive Officer at Dolu Properties — Real Estate, Leadership & Wealth Creation
+              {/* Short tagline/roles */}
+                <motion.p
+                  variants={itemVariants}
+                  className="mt-2 text-xl sm:text-2xl text-gray-700 font-medium"
+                >
+                CEO | Business Leader | Speaker
               </motion.p>
 
+                {/* Full descriptive line */}
+                <motion.p
+                  variants={itemVariants}
+                  className="mt-2 text-lg sm:text-xl text-gray-600"
+                >
+                  Chief Executive Officer at Dolu Properties — Real Estate, Leadership & Wealth Creation
+                </motion.p>
               <motion.div
                 variants={itemVariants}
                 className="mt-8 flex flex-wrap gap-4"
