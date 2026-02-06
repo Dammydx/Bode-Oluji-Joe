@@ -41,7 +41,7 @@ const Header: React.FC = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center" onClick={closeMenu}>
             <span className="text-2xl font-bold text-black">
-              Dolu<span className="text-yellow-400">Global</span>
+              Bode Oluji<span className="text-yellow-400"> Joe</span>
             </span>
           </Link>
 
