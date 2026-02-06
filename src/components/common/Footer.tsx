@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
           <div>
             <Link to="/" className="inline-block">
               <span className="text-2xl font-bold">
-                Dolu<span className="text-yellow-400">Global</span>
+               Bode Oluji<span className="text-yellow-400"> Joe</span>
               </span>
             </Link>
             <p className="mt-3 text-gray-400 max-w-xs">
