@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Image } from 'lucide-react';
 
-import { CheckCircle, } from 'lucide-react';
+import { CheckCircle, MessageCircle, User} from 'lucide-react';
 
 import heroImg from '/images/Dolu boss 2.png'; // Replace with actual Bode image
 
@@ -117,12 +117,18 @@ const AboutPage: React.FC = () => {
               <Link to="/gallery"
                 className="btn btn-primary inline-flex items-center"
               >
-                <Image size={18} className="mr-2" />
+                <Image size={12} className="mr-2" />
                 My Gallery
               </Link>
 
-              <Link to="/contact" className="btn btn-outline">
+              <Link to="/contact" className="btn btn-outline inline-flex items-center">
+                <MessageCircle size={12} className="mr-2" />
                 Get in Touch
+              </Link>
+
+              <Link to="/invite" className="btn btn-primary inline-flex items-center">
+                <User size={12} className="mr-2" />
+                Request an Invite
               </Link>
             </div>
 

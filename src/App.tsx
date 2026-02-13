@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -16,6 +16,8 @@ import Gallery from './pages/Gallery';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import Contact from './pages/Contact';
+import Feedback from './pages/Feedback';
+import Invite from './pages/Invite';   // ✅ ADD THIS
 import Admin from './pages/Admin';
 import NotFound from './pages/NotFound';
 
@@ -34,6 +36,11 @@ function App() {
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:id" element={<BlogPost />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/feedback" element={<Feedback />} />
+
+              {/* ✅ NEW INVITE PAGE */}
+              <Route path="/invite" element={<Invite />} />
+
               <Route path="/admin/*" element={<Admin />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

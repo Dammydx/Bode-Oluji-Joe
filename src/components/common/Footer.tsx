@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {  Instagram, Lock } from 'lucide-react';
+import { Facebook, Instagram, MessageSquare, Calendar } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -9,11 +9,12 @@ const Footer: React.FC = () => {
     <footer className="bg-black text-white py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
           {/* Logo */}
           <div>
             <Link to="/" className="inline-block">
               <span className="text-2xl font-bold">
-               Bode Oluji<span className="text-yellow-400"> Joe</span>
+                Bode Oluji<span className="text-yellow-400"> Joe</span>
               </span>
             </Link>
             <p className="mt-3 text-gray-400 max-w-xs">
@@ -21,35 +22,43 @@ const Footer: React.FC = () => {
             </p>
           </div>
 
-          {/* Links */}
+          {/* Quick Links */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              {['/', '/services', '/about','/gallery','/contact'].map((path, i) => (
+              {[
+                '/',
+                '/services',
+                '/about',
+                '/gallery',
+                '/contact',
+                '/invite',      // ✅ Added
+                '/feedback'
+              ].map((path, i) => (
                 <li key={path}>
                   <Link
                     to={path}
                     className="text-gray-400 hover:text-yellow-400 transition-colors"
                   >
-                    {['Home', 'Services', 'About', 'Gallery', 'Contact'][i]}
+                    {[
+                      'Home',
+                      'Services',
+                      'About',
+                      'Gallery',
+                      'Contact',
+                      'Request Invite',   // ✅ Label
+                      'Feedback'
+                    ][i]}
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link
-                  to="/admin"
-                  className="text-gray-400 hover:text-yellow-400 transition-colors inline-flex items-center"
-                >
-                  <Lock size={14} className="mr-1" />
-                  *****
-                </Link>
-              </li>
             </ul>
           </div>
 
           {/* Connect */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Connect</h4>
+
             <a
               href="https://www.instagram.com/davidoluji/"
               target="_blank"
@@ -60,6 +69,33 @@ const Footer: React.FC = () => {
               Instagram
             </a>
 
+            <a
+              href="https://www.facebook.com/bodejoe.oluji/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center text-gray-400 hover:text-yellow-400 transition-colors"
+            >
+              <Facebook size={20} className="mr-2" />
+              Facebook
+            </a>
+
+            <Link
+              to="/feedback"
+              className="mt-3 flex items-center text-gray-400 hover:text-yellow-400 transition-colors"
+            >
+              <MessageSquare size={20} className="mr-2" />
+              Leave Feedback
+            </Link>
+
+            {/* Invite CTA */}
+            <Link
+              to="/invite"
+              className="mt-3 flex items-center text-gray-400 hover:text-yellow-400 transition-colors"
+            >
+              <Calendar size={20} className="mr-2" />
+              Request an Invite
+            </Link>
+
             <div className="mt-4">
               <Link to="/contact" className="btn btn-primary">
                 Get in Touch
@@ -69,7 +105,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center md:text-left text-gray-500">
-          <p>&copy; {currentYear} DoluGlobal. All rights reserved.</p>
+          <p>&copy; {currentYear} Bode Oluji Joe. All rights reserved.</p>
         </div>
       </div>
     </footer>
