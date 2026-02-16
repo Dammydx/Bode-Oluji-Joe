@@ -69,10 +69,10 @@ const Home: React.FC = () => {
               </motion.p>
 
               <motion.div variants={itemVariants} className="mt-6 flex flex-wrap gap-4">
-                <Link to="/services" className="btn btn-primary">
+                {/* <Link to="/services" className="btn btn-primary">
                   View Services
-                </Link>
-                <Link to="/about" className="btn btn-outline">
+                </Link> */}
+                <Link to="/about" className="btn btn-primary">
                   About Me
                 </Link>
                 <Link to="/contact" className="btn btn-secondary">
@@ -81,7 +81,7 @@ const Home: React.FC = () => {
               </motion.div>
 
               <motion.div variants={itemVariants} className="mt-6">
-                <Link to="/invite" className="btn btn-primary">
+                <Link to="/invite" className="btn btn-outline">
                   Request an Invite
                 </Link>
               </motion.div>
