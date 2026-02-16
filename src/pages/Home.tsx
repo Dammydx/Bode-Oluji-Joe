@@ -81,12 +81,9 @@ const Home: React.FC = () => {
               </motion.div>
 
               <motion.div variants={itemVariants} className="mt-6">
-                <button
-                  onClick={() => setInviteOpen(true)}
-                  className="btn bg-yellow-400 hover:bg-yellow-500 text-black"
-                >
+                <Link to="/invite" className="btn btn-primary">
                   Request an Invite
-                </button>
+                </Link>
               </motion.div>
             </div>
 

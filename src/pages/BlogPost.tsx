@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link,  } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import supabase from '../lib/supabase';
 import { ArrowLeft, Calendar } from 'lucide-react';
@@ -13,7 +13,7 @@ type BlogPost = {
 
 const BlogPost: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [post, setPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

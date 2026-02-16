@@ -32,7 +32,7 @@ const Header: React.FC = () => {
     { name: 'About', path: '/about' },
     { name: 'Gallery', path: '/gallery' },
     { name: 'Contact', path: '/contact' },
-    { name: 'Invite', path: '/invite' },     // ✅ ADDED HERE
+    // { name: 'Invite', path: '/invite' },     // ✅ ADDED HERE
     { name: 'Feedback', path: '/feedback' },
   ];
 
