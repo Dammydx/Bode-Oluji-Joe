@@ -5,16 +5,16 @@ import heroImg2 from "/images/Doluboss.png";
 
 const CONTACT = {
   fullName: "Bode Oluji Joe",
-  role: "CEO | Business Leader | Speaker",
+  role: "Chairman | Entrepreneur | Strategic Investor",
   tagline:
-    "Chief Executive Officer at Dolu Properties — Real Estate, Leadership & Wealth Creation",
+    "Chief Executive Officer at Dolu Properties Focused on growth, innovation, and long-term value creation. Explore my official platforms below.",
   phone: "2348012345678",
-  email: "daramolaire@gmail.com",
+  email: "mailto:mail@mail.com",
   whatsapp: "2348012345678",
-  website: "https://yourdomain.com",
+  website: "https://flow-desk-purple.vercel.app/",
 
-  instagram: "https://instagram.com/xxxx",
-  facebook: "https://facebook.com/xxxx",
+  instagram: "https://www.instagram.com/davidoluji/",
+  facebook: "https://www.facebook.com/bodejoe.oluji/",
 };
 
 const CardPage: React.FC = () => {
@@ -103,25 +103,31 @@ const CardPage: React.FC = () => {
 
             {/* Socials */}
             <div className="flex items-center justify-center gap-6 mt-8">
-              {CONTACT.instagram && (
+            {CONTACT.instagram && (
                 <a
-                  href={CONTACT.instagram}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="p-3 rounded-full border hover:border-yellow-400 transition"
+                href={CONTACT.instagram}
+                target="_blank"
+                rel="noreferrer"
+                className="p-3 rounded-full border border-pink-200 bg-white hover:shadow-md hover:scale-105 transition"
                 >
-                  <Instagram size={20} />
+                <Instagram
+                    size={22}
+                    className="text-pink-600"
+                />
                 </a>
-              )}
+            )}
 
-              {CONTACT.facebook && (
+            {CONTACT.facebook && (
                 <a
-                  href={CONTACT.facebook}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="p-3 rounded-full border hover:border-yellow-400 transition"
+                href={CONTACT.facebook}
+                target="_blank"
+                rel="noreferrer"
+                className="p-3 rounded-full border border-blue-200 bg-white hover:shadow-md hover:scale-105 transition"
                 >
-                  <Facebook size={20} />
+                <Facebook
+                    size={22}
+                    className="text-blue-600"
+                />
                 </a>
               )}
             </div>
