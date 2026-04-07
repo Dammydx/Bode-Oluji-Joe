@@ -278,26 +278,30 @@ const GalleryGrid: React.FC = () => {
           <p className="mt-3 text-lg text-gray-600">Moments, milestones, and impact.</p>
         </div>
 
-        <motion.div
-          key={currentSet}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-6"
-        >
-          {sets[currentSet].map((img, idx) => (
+        <div className="relative overflow-hidden min-h-[260px]">
+          <AnimatePresence mode="wait">
             <motion.div
-              key={idx}
-              className="overflow-hidden rounded-xl shadow-md cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.5 }}
-              onClick={() => (window.location.href = '/gallery')}
+              key={currentSet}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+              className="grid grid-cols-1 sm:grid-cols-3 gap-6"
             >
-              <img src={img} alt="Gallery" className="w-full h-[260px] object-cover object-center" />
+              {sets[currentSet].map((img, idx) => (
+                <motion.div
+                  key={idx}
+                  className="overflow-hidden rounded-xl shadow-md cursor-pointer"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.5 }}
+                  onClick={() => (window.location.href = '/gallery')}
+                >
+                  <img src={img} alt="Gallery" className="w-full h-[260px] object-cover object-center" />
+                </motion.div>
+              ))}
             </motion.div>
-          ))}
-        </motion.div>
+          </AnimatePresence>
+        </div>
 
         <div className="flex justify-center gap-3 mt-6">
           {sets.map((_, idx) => (
