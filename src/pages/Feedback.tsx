@@ -96,11 +96,25 @@ const Feedback: React.FC = () => {
               {/* 🔥 Identify this form for universal template */}
               <input type="hidden" name="form_type" value="Feedback" />
 
-              <input name="full_name" placeholder="Full Name (optional)" className={inputClass} />
-              <input name="email" type="email" placeholder="Email (optional)" className={inputClass} />
+              <div className="space-y-1">
+                <label className="block text-sm font-bold text-black ml-1">Full Name</label>
+                <input name="full_name" placeholder="John Doe (optional)" className={inputClass} />
+              </div>
 
-              <input name="event_name" placeholder="Event Name / Church / Organization" className={inputClass} />
-              <input name="event_date" type="date" className={inputClass} />
+              <div className="space-y-1">
+                <label className="block text-sm font-bold text-black ml-1">Email Address</label>
+                <input name="email" type="email" placeholder="john@example.com (optional)" className={inputClass} />
+              </div>
+
+              <div className="space-y-1">
+                <label className="block text-sm font-bold text-black ml-1">Event / Organization</label>
+                <input name="event_name" placeholder="Event Name / Church / Organization" className={inputClass} />
+              </div>
+
+              <div className="space-y-1">
+                <label className="block text-sm font-bold text-black ml-1">Event Date</label>
+                <input name="event_date" type="date" className={inputClass} />
+              </div>
 
               {/* Rating */}
               <div className="md:col-span-2">
@@ -133,8 +147,8 @@ const Feedback: React.FC = () => {
               />
 
               <select name="recommend" required className={`${inputClass} md:col-span-2`}>
-                <option value="Yes">Would you recommend me? — Yes</option>
-                <option value="No">Would you recommend me? — No</option>
+                <option value="Yes">Would you recommend me? - Yes</option>
+                <option value="No">Would you recommend me? - No</option>
               </select>
 
               <div className="md:col-span-2 flex items-center justify-end">

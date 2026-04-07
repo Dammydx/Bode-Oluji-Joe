@@ -118,120 +118,153 @@ const Contact: React.FC = () => {
 
       {/* Content */}
       <div className="container mx-auto px-4 py-16">
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
-          {/* Info */}
-          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+          
+          {/* 1. Socials / Get In Touch (Mobile: 1st, Desktop: Sidebar Top) */}
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }} 
+            animate={{ opacity: 1, x: 0 }}
+            className="order-1"
+          >
             <h2 className="text-2xl font-bold text-black mb-6">Get In Touch</h2>
-            <p className="text-gray-700 mb-6">
+            <p className="text-gray-700 mb-6 font-medium">
               Connect with Bode Oluji Joe to discuss leadership and business growth.
             </p>
 
-            <a
-              href="https://www.instagram.com/davidoluji/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center text-black hover:text-yellow-500 transition-colors mb-6"
-            >
-              <Instagram size={20} className="mr-3" />
-              Instagram
-            </a>
-
-            <a
-              href="https://www.facebook.com/bodejoe.oluji/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center text-black hover:text-yellow-500 transition-colors mb-8"
-            >
-              <Facebook size={20} className="mr-3" />
-              Facebook
-            </a>
-
-            {/* Digital Business Card Link */}
-            <div className="mb-10">
-              <p className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-3">Digital Card</p>
-              <Link
-                to="/card"
-                className="inline-flex items-center justify-center w-full sm:w-auto
-                  border-2 border-black hover:bg-black hover:text-white
-                  text-black px-5 py-2.5 rounded-lg font-semibold transition-all"
+            <div className="flex flex-col space-y-4 mb-4">
+              <a
+                href="https://www.instagram.com/davidoluji/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-black hover:text-yellow-500 transition-colors"
               >
-                View My Digital Card
-              </Link>
-            </div>
+                <div className="w-8 flex justify-center">
+                  <Instagram size={20} className="text-yellow-500" />
+                </div>
+                <span className="ml-2 font-medium">Instagram</span>
+              </a>
 
-            {/* Feedback Button */}
-            <div className="border-t pt-6">
-              <p className="text-gray-700 mb-4 font-medium">Attended an engagement?</p>
-
-              <Link
-                to="/feedback"
-                className="inline-flex items-center justify-center
-                  bg-yellow-400 hover:bg-yellow-500
-                  text-black px-5 py-2.5 rounded-lg font-semibold transition-colors"
+              <a
+                href="https://www.facebook.com/bodejoe.oluji/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center text-black hover:text-yellow-500 transition-colors"
               >
-                Leave Feedback
-              </Link>
+                <div className="w-8 flex justify-center">
+                  <Facebook size={20} className="text-yellow-500" />
+                </div>
+                <span className="ml-2 font-medium">Facebook</span>
+              </a>
             </div>
           </motion.div>
 
-          {/* Form */}
-          <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="md:col-span-2">
-            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-              {/* Honeypot */}
-              <input name="company_site" className="hidden" tabIndex={-1} autoComplete="off" />
+          {/* 2. Form Section (Mobile: 2nd, Desktop: Main Column Top) */}
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }} 
+            animate={{ opacity: 1, x: 0 }} 
+            className="order-2 md:col-span-2 md:row-span-3"
+          >
+            <div className="bg-gray-50 p-6 sm:p-8 rounded-2xl border border-gray-100 shadow-sm">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+                {/* Honeypot */}
+                <input name="company_site" className="hidden" tabIndex={-1} autoComplete="off" />
 
-              {/* Optional: identify form */}
-              <input type="hidden" name="form_type" value="Contact Message" />
+                {/* System identifier */}
+                <input type="hidden" name="form_type" value="Contact Message" />
 
-              {fields.map((field) => (
-                <div key={field}>
-                  <label className="block text-sm font-medium text-black mb-1 capitalize">{field}</label>
-                  <input
-                    type={field === 'email' ? 'email' : 'text'}
-                    name={field}
-                    value={formData[field]}
+                {fields.map((field) => (
+                  <div key={field}>
+                    <label className="block text-sm font-bold text-black mb-1.5 capitalize">{field}</label>
+                    <input
+                      type={field === 'email' ? 'email' : 'text'}
+                      name={field}
+                      value={formData[field]}
+                      onChange={handleChange}
+                      placeholder={`Enter your ${field}`}
+                      className={`w-full rounded-xl border px-4 py-3 bg-white text-black 
+                        focus:outline-none focus:ring-2 focus:ring-yellow-400
+                        ${errors[field] ? 'border-red-500 shadow-sm' : 'border-gray-200 shadow-soft'}
+                      `}
+                    />
+                    {errors[field] && <p className="text-xs text-red-500 mt-1 font-medium">{errors[field]}</p>}
+                  </div>
+                ))}
+
+                <div>
+                  <label className="block text-sm font-bold text-black mb-1.5">Message</label>
+                  <textarea
+                    name="message"
+                    rows={6}
+                    value={formData.message}
                     onChange={handleChange}
-                    className={`w-full rounded-lg border px-4 py-2 bg-white text-black 
+                    placeholder="Tell me more about your project or inquiry..."
+                    className={`w-full rounded-xl border px-4 py-3 bg-white text-black 
                       focus:outline-none focus:ring-2 focus:ring-yellow-400
-                      ${errors[field] ? 'border-red-500' : 'border-black'}
+                      ${errors.message ? 'border-red-500 shadow-sm' : 'border-gray-200 shadow-soft'}
                     `}
                   />
-                  {errors[field] && <p className="text-sm text-red-500 mt-1">{errors[field]}</p>}
+                  {errors.message && <p className="text-xs text-red-500 mt-1 font-medium">{errors.message}</p>}
                 </div>
-              ))}
 
-              <div>
-                <label className="block text-sm font-medium text-black mb-1">Message</label>
-                <textarea
-                  name="message"
-                  rows={6}
-                  value={formData.message}
-                  onChange={handleChange}
-                  className={`w-full rounded-lg border px-4 py-2 bg-white text-black 
-                    focus:outline-none focus:ring-2 focus:ring-yellow-400
-                    ${errors.message ? 'border-red-500' : 'border-black'}
-                  `}
-                />
-                {errors.message && <p className="text-sm text-red-500 mt-1">{errors.message}</p>}
-              </div>
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full sm:w-auto inline-flex items-center justify-center
+                    bg-yellow-400 hover:bg-yellow-500
+                    text-black px-8 py-4 rounded-xl font-bold transition-all transform active:scale-95 shadow-md"
+                >
+                  {loading ? (
+                    <span className="w-6 h-6 border-3 border-black border-t-transparent rounded-full animate-spin" />
+                  ) : (
+                    <>
+                      <Send size={20} className="mr-2" />
+                      Send Message
+                    </>
+                  )}
+                </button>
+              </form>
+            </div>
+          </motion.div>
 
-              <button
-                type="submit"
-                disabled={loading}
-                className="inline-flex items-center justify-center
-                  bg-yellow-400 hover:bg-yellow-500
-                  text-black px-6 py-3 rounded-lg font-semibold transition-colors"
-              >
-                {loading ? (
-                  <span className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin" />
-                ) : (
-                  <>
-                    <Send size={18} className="mr-2" />
-                    Send Message
-                  </>
-                )}
-              </button>
-            </form>
+          {/* 3. Feedback Section (Mobile: 3rd, Desktop: Sidebar Middle) */}
+          <motion.div 
+            initial={{ opacity: 0 }} 
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="order-3 border-t border-gray-100 pt-8"
+          >
+            <h3 className="text-lg font-bold text-black mb-2">Share Your Experience</h3>
+            <p className="text-gray-600 mb-6 text-sm">
+              If you’ve heard Bode Oluji Joe speak or attended his events, your feedback helps drive more impact.
+            </p>
+
+            <Link
+              to="/feedback"
+              className="inline-flex items-center justify-center w-full
+                bg-white border-2 border-yellow-400 hover:bg-yellow-400
+                text-black px-5 py-3 rounded-xl font-bold transition-all shadow-sm"
+            >
+              Leave Feedback
+            </Link>
+          </motion.div>
+
+          {/* 4. Digital Card Section (Mobile: 4th/Last, Desktop: Sidebar Bottom) */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="order-4 border-t border-dashed border-gray-200 pt-8"
+          >
+            <p className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3">Quick Connect</p>
+            <Link
+              to="/card"
+              className="inline-flex items-center justify-center w-full
+                bg-black hover:bg-gray-900
+                text-white px-5 py-3 rounded-xl font-bold transition-all shadow-md group"
+            >
+              <CheckCircle2 size={18} className="mr-2 text-yellow-400 transition-transform group-hover:scale-110" />
+              View My Digital Card
+            </Link>
           </motion.div>
         </div>
       </div>

@@ -178,7 +178,7 @@ const Home: React.FC = () => {
                 Request an Invite
               </button>
               <Link to="/contact" className="btn btn-outline">
-                Contact Page
+                Contact Me
               </Link>
             </div>
           </motion.div>
@@ -373,14 +373,14 @@ const InviteModal: React.FC<{ open: boolean; onClose: () => void }> = ({ open, o
     <AnimatePresence>
       {open && (
         <motion.div
-          className="fixed inset-0 z-[999] bg-black/60 flex items-center justify-center p-3 sm:p-4"
+          className="fixed inset-0 z-[999] bg-black/60 flex items-start justify-center p-4 overflow-y-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
         >
           <motion.div
-            className="w-full max-w-md sm:max-w-lg lg:max-w-3xl bg-white rounded-2xl shadow-xl overflow-hidden"
+            className="w-full max-w-md sm:max-w-lg lg:max-w-3xl bg-white rounded-2xl shadow-xl overflow-hidden my-4 sm:my-10"
             initial={{ scale: 0.96, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.96, opacity: 0 }}
@@ -397,8 +397,8 @@ const InviteModal: React.FC<{ open: boolean; onClose: () => void }> = ({ open, o
               </button>
             </div>
 
-            {/* Body (scrollable on mobile) */}
-            <div className="max-h-[85vh] overflow-y-auto">
+            {/* Body (scrollable) */}
+            <div className="overflow-y-auto">
               <form
                 ref={formRef}
                 onSubmit={handleSubmit}
@@ -409,79 +409,122 @@ const InviteModal: React.FC<{ open: boolean; onClose: () => void }> = ({ open, o
                 {/* 🔥 Identify this form */}
                 <input type="hidden" name="form_type" value="Invite Request" />
 
-                <input name="full_name" placeholder="Full Name" required className={inputClass} />
-                <input name="email" type="email" placeholder="Email" required className={inputClass} />
+                <div className="space-y-1">
+                  <label className="block text-sm font-bold text-black ml-1">Full Name</label>
+                  <input name="full_name" placeholder="John Doe" required className={inputClass} />
+                </div>
 
-                <input name="phone" placeholder="Phone / WhatsApp" required className={inputClass} />
-                <input name="org" placeholder="Organization / Church / Institution" required className={inputClass} />
+                <div className="space-y-1">
+                  <label className="block text-sm font-bold text-black ml-1">Email Address</label>
+                  <input name="email" type="email" placeholder="john@example.com" required className={inputClass} />
+                </div>
 
-                <select
-                  name={eventType === "Other" ? "event_type_selection" : "event_type"}
-                  value={eventType}
-                  onChange={(e) => setEventType(e.target.value)}
-                  required
-                  className={inputClass}
-                >
-                  <option value="">Select Event Type</option>
-                  <option>Leadership Summit</option>
-                  <option>Business Conference</option>
-                  <option>Executive Training</option>
-                  <option>Church Conference</option>
-                  <option>Special Service</option>
-                  <option>Private Executive Session</option>
-                  <option value="Other">Other (Please specify)</option>
-                </select>
+                <div className="space-y-1">
+                  <label className="block text-sm font-bold text-black ml-1">Phone / WhatsApp</label>
+                  <input name="phone" placeholder="+234..." required className={inputClass} />
+                </div>
 
-                {eventType === "Other" && (
-                  <input
-                    name="event_type"
-                    placeholder="Type event type here..."
+                <div className="space-y-1">
+                  <label className="block text-sm font-bold text-black ml-1">Organization / Institution</label>
+                  <input name="org" placeholder="Church / Company Name" required className={inputClass} />
+                </div>
+
+                <div className="space-y-1">
+                  <label className="block text-sm font-bold text-black ml-1">Event Type</label>
+                  <select
+                    name={eventType === "Other" ? "event_type_selection" : "event_type"}
+                    value={eventType}
+                    onChange={(e) => setEventType(e.target.value)}
                     required
                     className={inputClass}
-                  />
+                  >
+                    <option value="">Select Event Type</option>
+                    <option>Leadership Summit</option>
+                    <option>Business Conference</option>
+                    <option>Executive Training</option>
+                    <option>Church Conference</option>
+                    <option>Special Service</option>
+                    <option>Private Executive Session</option>
+                    <option value="Other">Other (Please specify)</option>
+                  </select>
+                </div>
+
+                {eventType === "Other" && (
+                  <div className="space-y-1">
+                    <label className="block text-sm font-bold text-black ml-1">Specify Event Type</label>
+                    <input
+                      name="event_type"
+                      placeholder="Type event type here..."
+                      required
+                      className={inputClass}
+                    />
+                  </div>
                 )}
 
-                <input name="topic" placeholder="Topic / Theme" required className={inputClass} />
+                <div className="space-y-1">
+                  <label className="block text-sm font-bold text-black ml-1">Topic / Theme</label>
+                  <input name="topic" placeholder="The Future of Leadership" required className={inputClass} />
+                </div>
 
-                <div className="flex flex-col gap-1">
-                  <label className="text-sm font-medium text-gray-700 ml-1">Event Date</label>
+                <div className="space-y-1">
+                  <label className="block text-sm font-bold text-black ml-1">Event Date</label>
                   <input name="event_date" type="date" required className={inputClass} />
                 </div>
-                <div className="flex flex-col gap-1">
-                  <label className="text-sm font-medium text-gray-700 ml-1">Event Time</label>
+
+                <div className="space-y-1">
+                  <label className="block text-sm font-bold text-black ml-1">Start Time</label>
                   <input name="event_time" type="time" required className={inputClass} />
                 </div>
 
-                <input
-                  name="location"
-                  placeholder="Location (Venue, City/State)"
-                  required
-                  className={`${inputClass} md:col-span-2`}
-                />
+                <div className="space-y-1 md:col-span-2">
+                  <label className="block text-sm font-bold text-black ml-1">Location / Venue</label>
+                  <input
+                    name="location"
+                    placeholder="Venue Name, City, State"
+                    required
+                    className={inputClass}
+                  />
+                </div>
 
-                <input name="duration" placeholder="Duration Needed (e.g., 45 mins)" required className={inputClass} />
-                <input name="budget" placeholder="Honorarium / Budget Range (optional)" className={inputClass} />
+                <div className="space-y-1">
+                  <label className="block text-sm font-bold text-black ml-1">Duration</label>
+                  <input name="duration" placeholder="e.g., 45 mins" required className={inputClass} />
+                </div>
 
-                <textarea
-                  name="event_goal"
-                  placeholder="What do you want to achieve at the end of the engagement?"
-                  required
-                  className={`${inputClass} md:col-span-2 h-24`}
-                />
+                <div className="space-y-1">
+                  <label className="block text-sm font-bold text-black ml-1">Budget / Honorarium</label>
+                  <input name="budget" placeholder="Budget Range (optional)" className={inputClass} />
+                </div>
 
-                <textarea
-                  name="welfare"
-                  placeholder="Welfare / Logistics (optional) — transport, accommodation, etc."
-                  className={`${inputClass} md:col-span-2 h-20`}
-                />
+                <div className="space-y-1 md:col-span-2">
+                  <label className="block text-sm font-bold text-black ml-1">Expected Outcome / Goal</label>
+                  <textarea
+                    name="event_goal"
+                    placeholder="What do you want to achieve?"
+                    required
+                    className={`${inputClass} h-24`}
+                  />
+                </div>
 
-                <textarea
-                  name="notes"
-                  placeholder="Additional notes (optional)"
-                  className={`${inputClass} md:col-span-2 h-20`}
-                />
+                <div className="space-y-1 md:col-span-2">
+                  <label className="block text-sm font-bold text-black ml-1">Welfare & Logistics</label>
+                  <textarea
+                    name="welfare"
+                    placeholder="Transport, accommodation, etc. (optional)"
+                    className={`${inputClass} h-20`}
+                  />
+                </div>
 
-                <div className="md:col-span-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <div className="space-y-1 md:col-span-2">
+                  <label className="block text-sm font-bold text-black ml-1">Additional Notes</label>
+                  <textarea
+                    name="notes"
+                    placeholder="Any other details..."
+                    className={`${inputClass} h-20`}
+                  />
+                </div>
+
+                <div className="md:col-span-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-2">
                   <button type="button" onClick={onClose} className="btn btn-outline w-full sm:w-auto">
                     Cancel
                   </button>
