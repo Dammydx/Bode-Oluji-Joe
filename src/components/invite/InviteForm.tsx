@@ -11,6 +11,7 @@ const InviteForm: React.FC<Props> = ({ onSuccess }) => {
   const formRef = useRef<HTMLFormElement | null>(null);
 
   const [loading, setLoading] = useState(false);
+  const [eventType, setEventType] = useState("");
 
   // Popup state
   const [popupOpen, setPopupOpen] = useState(false);
@@ -77,7 +78,13 @@ const InviteForm: React.FC<Props> = ({ onSuccess }) => {
         <input name="phone" placeholder="Phone / WhatsApp" required className={inputClass} />
         <input name="org" placeholder="Organization / Church / Institution" required className={inputClass} />
 
-        <select name="event_type" required className={inputClass}>
+        <select
+          name={eventType === "Other" ? "event_type_selection" : "event_type"}
+          value={eventType}
+          onChange={(e) => setEventType(e.target.value)}
+          required
+          className={inputClass}
+        >
           <option value="">Select Event Type</option>
           <option>Leadership Summit</option>
           <option>Business Conference</option>
@@ -85,12 +92,28 @@ const InviteForm: React.FC<Props> = ({ onSuccess }) => {
           <option>Church Conference</option>
           <option>Special Service</option>
           <option>Private Executive Session</option>
+          <option value="Other">Other (Please specify)</option>
         </select>
+
+        {eventType === "Other" && (
+          <input
+            name="event_type"
+            placeholder="Type event type here..."
+            required
+            className={inputClass}
+          />
+        )}
 
         <input name="topic" placeholder="Topic / Theme" required className={inputClass} />
 
-        <input name="event_date" type="date" required className={inputClass} />
-        <input name="event_time" type="time" required className={inputClass} />
+        <div className="flex flex-col gap-1">
+          <label className="text-sm font-medium text-gray-700 ml-1">Event Date</label>
+          <input name="event_date" type="date" required className={inputClass} />
+        </div>
+        <div className="flex flex-col gap-1">
+          <label className="text-sm font-medium text-gray-700 ml-1">Event Time</label>
+          <input name="event_time" type="time" required className={inputClass} />
+        </div>
 
         <input
           name="location"

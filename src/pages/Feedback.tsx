@@ -111,12 +111,13 @@ const Feedback: React.FC = () => {
                       type="button"
                       key={n}
                       onClick={() => setRating(n)}
-                      className={`p-2 rounded-lg border transition-colors ${
-                        rating >= n ? "bg-yellow-400 border-yellow-400" : "bg-white border-black"
-                      }`}
+                      className="p-1 transition-transform hover:scale-110 active:scale-95"
                       aria-label={`Rate ${n}`}
                     >
-                      <Star size={18} className="text-black" />
+                      <Star
+                        size={32}
+                        className={rating >= n ? "text-yellow-400 fill-yellow-400" : "text-gray-300"}
+                      />
                     </button>
                   ))}
                   <input type="hidden" name="rating" value={rating} />
@@ -131,9 +132,9 @@ const Feedback: React.FC = () => {
                 className={`${inputClass} md:col-span-2 h-28`}
               />
 
-              <select name="recommend" className={`${inputClass} md:col-span-2`}>
-                <option value="Yes">Would you recommend? — Yes</option>
-                <option value="No">Would you recommend? — No</option>
+              <select name="recommend" required className={`${inputClass} md:col-span-2`}>
+                <option value="Yes">Would you recommend me? — Yes</option>
+                <option value="No">Would you recommend me? — No</option>
               </select>
 
               <div className="md:col-span-2 flex items-center justify-end">

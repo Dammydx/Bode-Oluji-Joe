@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
-import heroImg2 from '/images/Doluboss.png';
+import heroImg2 from '../assets/gallery/Doluboss.png';
 
 const Home: React.FC = () => {
   const [inviteOpen, setInviteOpen] = useState(false);
@@ -65,7 +65,7 @@ const Home: React.FC = () => {
                 variants={itemVariants}
                 className="mt-2 text-base sm:text-lg text-gray-600"
               >
-                Chief Executive Officer at Dolu Properties — Real Estate, Leadership & Wealth Creation
+                Chief Executive Officer at Dolu Properties - Real Estate, Leadership & Wealth Creation
               </motion.p>
 
               <motion.div variants={itemVariants} className="mt-6 flex flex-wrap gap-4">
@@ -304,9 +304,8 @@ const GalleryGrid: React.FC = () => {
             <button
               key={idx}
               onClick={() => setCurrentSet(idx)}
-              className={`w-3 h-3 rounded-full transition-all ${
-                currentSet === idx ? 'bg-yellow-400 scale-125' : 'bg-gray-300'
-              }`}
+              className={`w-3 h-3 rounded-full transition-all ${currentSet === idx ? 'bg-yellow-400 scale-125' : 'bg-gray-300'
+                }`}
             />
           ))}
         </div>
@@ -326,6 +325,7 @@ const InviteModal: React.FC<{ open: boolean; onClose: () => void }> = ({ open, o
   const formRef = useRef<HTMLFormElement | null>(null);
 
   const [loading, setLoading] = useState(false);
+  const [eventType, setEventType] = useState("");
 
   // ✅ Popup state (replaces plain msg text)
   const [popupOpen, setPopupOpen] = useState(false);
@@ -415,7 +415,13 @@ const InviteModal: React.FC<{ open: boolean; onClose: () => void }> = ({ open, o
                 <input name="phone" placeholder="Phone / WhatsApp" required className={inputClass} />
                 <input name="org" placeholder="Organization / Church / Institution" required className={inputClass} />
 
-                <select name="event_type" required className={inputClass}>
+                <select
+                  name={eventType === "Other" ? "event_type_selection" : "event_type"}
+                  value={eventType}
+                  onChange={(e) => setEventType(e.target.value)}
+                  required
+                  className={inputClass}
+                >
                   <option value="">Select Event Type</option>
                   <option>Leadership Summit</option>
                   <option>Business Conference</option>
@@ -423,12 +429,28 @@ const InviteModal: React.FC<{ open: boolean; onClose: () => void }> = ({ open, o
                   <option>Church Conference</option>
                   <option>Special Service</option>
                   <option>Private Executive Session</option>
+                  <option value="Other">Other (Please specify)</option>
                 </select>
+
+                {eventType === "Other" && (
+                  <input
+                    name="event_type"
+                    placeholder="Type event type here..."
+                    required
+                    className={inputClass}
+                  />
+                )}
 
                 <input name="topic" placeholder="Topic / Theme" required className={inputClass} />
 
-                <input name="event_date" type="date" required className={inputClass} />
-                <input name="event_time" type="time" required className={inputClass} />
+                <div className="flex flex-col gap-1">
+                  <label className="text-sm font-medium text-gray-700 ml-1">Event Date</label>
+                  <input name="event_date" type="date" required className={inputClass} />
+                </div>
+                <div className="flex flex-col gap-1">
+                  <label className="text-sm font-medium text-gray-700 ml-1">Event Time</label>
+                  <input name="event_time" type="time" required className={inputClass} />
+                </div>
 
                 <input
                   name="location"

@@ -5,7 +5,7 @@ import { Image } from 'lucide-react';
 
 import { CheckCircle, MessageCircle, User} from 'lucide-react';
 
-import heroImg from '/images/Dolu boss 2.png'; // Replace with actual Bode image
+import heroImg from '../assets/gallery/dolu-boss-2.png'; // Replace with actual Bode image
 
 const skills = [
   "Executive Leadership",
@@ -162,14 +162,17 @@ const AboutPage: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-2xl font-semibold text-black mb-4">Ready to Work Together?</h2>
-          <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-            If you're looking for a strategic partner and leadership-driven support to grow your business and achieve your goals, get in touch today.
-          </p>
-          <Link to="/contact" className="btn btn-primary inline-block px-6 py-3 text-lg font-semibold rounded-lg">
-  Contact Me
-</Link>
-
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/contact" className="btn btn-primary inline-block px-6 py-3 text-lg font-semibold rounded-lg">
+              Contact Me
+            </Link>
+            <Link 
+              to="/card" 
+              className="btn border-2 border-black hover:bg-black hover:text-white transition-all px-6 py-3 text-lg font-semibold rounded-lg"
+            >
+              My Digital Card
+            </Link>
+          </div>
         </motion.div>
       </div>
     </div>

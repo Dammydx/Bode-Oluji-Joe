@@ -140,11 +140,24 @@ const Contact: React.FC = () => {
               href="https://www.facebook.com/bodejoe.oluji/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center text-black hover:text-yellow-500 transition-colors mb-6"
+              className="flex items-center text-black hover:text-yellow-500 transition-colors mb-8"
             >
               <Facebook size={20} className="mr-3" />
               Facebook
             </a>
+
+            {/* Digital Business Card Link */}
+            <div className="mb-10">
+              <p className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-3">Digital Card</p>
+              <Link
+                to="/card"
+                className="inline-flex items-center justify-center w-full sm:w-auto
+                  border-2 border-black hover:bg-black hover:text-white
+                  text-black px-5 py-2.5 rounded-lg font-semibold transition-all"
+              >
+                View My Digital Card
+              </Link>
+            </div>
 
             {/* Feedback Button */}
             <div className="border-t pt-6">

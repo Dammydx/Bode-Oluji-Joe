@@ -1,7 +1,7 @@
 import React from "react";
 import { Phone, Mail, Globe, Instagram, Facebook } from "lucide-react";
 
-import heroImg2 from "/images/Doluboss.png";
+import heroImg2 from "../assets/gallery/Doluboss.png";
 
 const CONTACT = {
   fullName: "Bode Oluji Joe",
