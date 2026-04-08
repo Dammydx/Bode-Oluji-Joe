@@ -168,8 +168,8 @@ const Feedback: React.FC = () => {
               />
 
               <select name="recommend" required className={`${inputClass} md:col-span-2`}>
-                <option value="Yes">Would you recommend me? -  Yes</option>
-                <option value="No">Would you recommend me? -  No</option>
+                <option value="Yes">Would you recommend me? -- Yes</option>
+                <option value="No">Would you recommend me? -- No</option>
               </select>
 
               <div className="md:col-span-2 flex items-center justify-end">
