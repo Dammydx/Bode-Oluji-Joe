@@ -278,19 +278,37 @@ const GalleryGrid: React.FC = () => {
           <p className="mt-3 text-lg text-gray-600">Moments, milestones, and impact.</p>
         </div>
 
-        <div className="relative overflow-hidden min-h-[260px]">
+        <div className="relative min-h-[260px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSet}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1.5, ease: "easeInOut" }}
+              variants={{
+                hidden: { opacity: 0 },
+                show: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.12,
+                    duration: 0.3
+                  }
+                },
+                exit: { 
+                  opacity: 0,
+                  transition: { duration: 0.3 }
+                }
+              }}
+              initial="hidden"
+              animate="show"
+              exit="exit"
               className="grid grid-cols-1 sm:grid-cols-3 gap-6"
             >
               {sets[currentSet].map((img, idx) => (
                 <motion.div
                   key={idx}
+                  variants={{
+                    hidden: { opacity: 0, scale: 0.9, y: 10 },
+                    show: { opacity: 1, scale: 1, y: 0 },
+                    exit: { opacity: 0, scale: 0.9, transition: { duration: 0.2 } }
+                  }}
                   className="overflow-hidden rounded-xl shadow-md cursor-pointer"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.5 }}
