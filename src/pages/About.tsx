@@ -1,9 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Image } from 'lucide-react';
-
-import { CheckCircle, MessageCircle, User} from 'lucide-react';
+import { CheckCircle, CheckCircle2, MessageCircle, User, Image } from 'lucide-react';
 
 import heroImg from '../assets/gallery/dolu-boss-2.png'; // Replace with actual Bode image
 
@@ -162,15 +160,18 @@ const AboutPage: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact" className="btn btn-primary inline-block px-6 py-3 text-lg font-semibold rounded-lg">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link to="/contact" className="btn btn-primary inline-block px-8 py-3 text-lg font-bold rounded-xl shadow-md">
               Contact Me
             </Link>
             <Link 
               to="/card" 
-              className="btn border-2 border-black hover:bg-black hover:text-white transition-all px-6 py-3 text-lg font-semibold rounded-lg"
+              className="inline-flex items-center justify-center
+                bg-black hover:bg-gray-900
+                text-white px-8 py-3 rounded-xl font-bold transition-all shadow-md group min-w-[200px]"
             >
-              My Digital Card
+              <CheckCircle2 size={20} className="mr-2 text-yellow-400 transition-transform group-hover:scale-110" />
+              View My Digital Card
             </Link>
           </div>
         </motion.div>

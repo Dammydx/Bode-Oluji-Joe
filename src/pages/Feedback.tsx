@@ -119,21 +119,42 @@ const Feedback: React.FC = () => {
               {/* Rating */}
               <div className="md:col-span-2">
                 <label className="block text-sm font-medium text-black mb-2">Rating</label>
-                <div className="flex flex-wrap items-center gap-2">
-                  {[1, 2, 3, 4, 5].map((n) => (
-                    <button
-                      type="button"
-                      key={n}
-                      onClick={() => setRating(n)}
-                      className="p-1 transition-transform hover:scale-110 active:scale-95"
-                      aria-label={`Rate ${n}`}
-                    >
-                      <Star
-                        size={32}
-                        className={rating >= n ? "text-yellow-400 fill-yellow-400" : "text-gray-300"}
-                      />
-                    </button>
-                  ))}
+                <div className="flex flex-wrap items-center gap-2" key={rating}>
+                  <AnimatePresence mode="popLayout" initial={false}>
+                    {[1, 2, 3, 4, 5].map((n) => (
+                      <motion.button
+                        type="button"
+                        key={n}
+                        onClick={() => setRating(n)}
+                        whileHover={{ scale: 1.25, rotate: 10 }}
+                        whileTap={{ scale: 0.8 }}
+                        initial={rating >= n ? { scale: 1 } : { scale: 1 }}
+                        animate={
+                          rating >= n
+                            ? {
+                                scale: [1, 1.4, 1],
+                                transition: { 
+                                  delay: n * 0.05, 
+                                  duration: 0.3,
+                                  // repeat: Infinity, // Uncomment to loop
+                                  // repeatDelay: 0.5
+                                }
+                              }
+                            : { scale: 1 }
+                        }
+                        className="p-1 transition-colors"
+                        aria-label={`Rate ${n}`}
+                      >
+                        <Star
+                          size={32}
+                          className={rating >= n ? "text-yellow-400 fill-yellow-400" : "text-gray-300"}
+                          style={{
+                            filter: rating >= n ? "drop-shadow(0 0 8px rgba(250, 204, 21, 0.6))" : "none",
+                          }}
+                        />
+                      </motion.button>
+                    ))}
+                  </AnimatePresence>
                   <input type="hidden" name="rating" value={rating} />
                   <span className="text-sm text-gray-700 ml-1">{rating}/5</span>
                 </div>
